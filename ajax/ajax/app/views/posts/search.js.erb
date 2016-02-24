@@ -1,0 +1,4 @@
+$('tbody').children().remove();
+<% @posts.each do |post| %>
+  $("tbody").append("<%= j(render("tr", post: post)) %>");
+<% end %>
