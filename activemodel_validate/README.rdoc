@@ -1,28 +1,5 @@
-== README
+https://github.com/intridea/houston/blob/master/spec/models/dashboard_config_spec.rb
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+https://github.com/intridea/houston/blob/2312ec154e9ceae2da0fd9ece2f5a1b5e1b5950a/app/models/dashboard_config.rb
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+http://qiita.com/xend/items/c07be18de3f14adaa198
