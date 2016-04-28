@@ -1,0 +1,12 @@
+
+<%= link_to "Number Alert", post_path(42), remote: true %>
+
+<div id="target-for-change">
+  Now you see "ME"!
+</div>
+
+<br />
+Dashboard totals: <span id="dashboard-totals">
+<%= link_to ".", url_for({controller: "posts", action: "totals"}), method: :post, remote: true, class: "dashboard-totals" %>
+</span>
+<%= javascript_tag '$(".dashboard-totals").click();' %>
