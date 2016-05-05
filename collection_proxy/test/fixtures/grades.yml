@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  student: 
+  score: 1
+  class_name: MyString
+
+two:
+  student: 
+  score: 1
+  class_name: MyString
