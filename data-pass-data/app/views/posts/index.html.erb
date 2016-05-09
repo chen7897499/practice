@@ -1,0 +1,77 @@
+<h1>Listing posts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.title %></td>
+    <td><%= post.body %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<table class="w3-table-all" style="width:100%">
+<tr>
+  <th>Number</th>
+  <th>First Name</th>
+  <th>Last Name</th>    
+  <th>Points</th>
+</tr>
+<tr>
+  <td>1</td>
+  <td>Eve</td>
+  <td>Jackson</td>    
+  <td>94</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>John</td>
+  <td>Doe</td>    
+  <td>80</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>Adam</td>
+  <td>Johnson</td>    
+  <td>67</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>Jill</td>
+  <td>Smith</td>    
+  <td>50</td>
+</tr>
+</table>
+<hr>
+
+<div id="data-store" data-lala="">
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>
+
+<script>
+  $(function() {
+    var a = new Object();
+    $(".w3-table-all").find("tr").slice(1,5).each(function(index_a){
+      a[index_a] = new Object();
+      prev_index = index_a;
+      b = a;
+      $(this).find("td").each(function(index_b){
+        b[prev_index][index_b] = new Object();
+        b[prev_index][index_b] = $(this).html();
+      });
+    });
+    $("#data-store").data('lala', a);
+  });
+</script>
