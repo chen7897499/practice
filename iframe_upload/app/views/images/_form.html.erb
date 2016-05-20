@@ -1,0 +1,49 @@
+<iframe id="uploadTrg" name="uploadTrg" height="0" width="0" frameborder="0" scrolling="yes"></iframe>
+
+<%= form_for(@image, :html => {:target => 'uploadTrg'}) do |f| %>
+  <% if @image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% @image.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :picture %><br />
+    <%= f.file_field :picture %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% binding.pry %>
+
+<img id="ajaxResultTest" src="">
+
+<script>
+$(function(){
+  $("iframe").load(function(){
+      // ok , now you know that the file is uploaded , you can do what you want , for example tell the user that the file is uploaded 
+      alert("The file is uploaded");
+
+      $.ajax({
+       type: "GET",
+       url: "/last.json",
+       success: function(data){
+        debugger;
+        $("img").attr("src", (document.location.origin + data.picture));
+       }
+      })
+  });
+})
+</script>
