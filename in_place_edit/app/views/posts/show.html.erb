@@ -1,0 +1,29 @@
+<style>
+input[name="title"] {
+	width: 50px;
+}
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= best_in_place @post, :title, path: {action: :index} %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= best_in_place @post, :body %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+<script>
+$(function(){
+	$("#best_in_place_post_2_body").bind('ajax:success', function(){
+		alert("changed");
+	})
+})
+</script>
