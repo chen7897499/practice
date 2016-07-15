@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>just a test</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="http://vuejs.org.cn/js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div class="container-fluid">
+      <ul class="list-group">
+        <post v-for="post in posts" :post="post"></post>
+      </ul>
+
+      <div id="comment-box">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter a comment..." v-model="comment" @keyup.enter="postComment">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" @click="postComment">Submit</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <template id="post-template">
+    <li class="list-group-item">
+      <i class="glyphicon glyphicon-chevron-up" @click="upvote"></i>
+      <span class="label label-primary">{{ votes }}</span>
+      <i class="glyphicon glyphicon-chevron-down" @click="downvote"></i>
+      <a>{{ post.title }}</a>
+    </li>
+  </template>
+
+
+</body>
+<script>
+  Vue.component('post', {
+    template: "#post-template",
+    props: ['post'],
+    data: function(){
+      return {
+        upvoted: false,
+        downvoted: false
+      }
+    },
+    methods: {
+      upvote: function(){
+        this.upvoted = false;
+        this.upvoted = true;
+      },
+      downvote: function(){
+        this.downvoted = false;
+        this.downvoted = true;
+      }
+    },
+    computed: {
+      votes: function(){
+        if (this.upvoted){
+          this.post.votes += 1;
+          return this.post.votes;
+        } else if (this.downvoted){
+          this.post.votes -= 1;
+          return this.post.votes;
+        } else {
+          return this.post.votes
+        }
+      }
+    }
+  });
+
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      posts: [{
+        title: 'A post for our reddit demo starting at 15 votes',
+        votes: 15
+      },
+      {
+        title: "Try out the upvoting, it works, I promise",
+        votes: 53
+      },
+      {
+        title: "coligo is the bomb!",
+        votes: 10 
+      }],
+      comment: ""
+    },
+    methods: {
+      postComment: function(){
+        this.posts.push({
+          title: this.comment,
+          votes: 0
+        })
+        this.comment = "";
+      }
+    }
+  });
+
+</script>
+</html>
