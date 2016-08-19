@@ -1,0 +1,13 @@
+defaults: &defaults
+
+development:
+  <<: *defaults
+  github:
+    consumer_key: "c692ac329816e14a79e1"
+    consumer_secret: "d13ef56d2a400c8338a3e2b04e1984dfa38d5186"
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
