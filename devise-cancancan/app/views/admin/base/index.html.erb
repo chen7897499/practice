@@ -1,0 +1,15 @@
+<h1>Admin::Base#index</h1>
+<p>Find me in app/views/admin/base/index.html.erb</p>
+
+<% if admin_user_signed_in? %>
+  <%= link_to "sign out", destroy_admin_user_session_path%>
+<% end %>
+
+<% if can? :admin, current_admin_user %>
+  <p>admin information</p>
+<% end %>
+
+<% if can? :member, current_admin_user %>
+  <p>member information</p>
+<% end %>
+

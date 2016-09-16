@@ -1,0 +1,14 @@
+http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html
+
+http://hibbard.eu/authentication-with-devise-and-cancancan-in-rails-4-2/
+
+http://morizyun.github.io/blog/devise-cancan-rails-authorize/
+
+http://railsapps.github.io/rails-authorization.html
+
+rails enum 默认使用的是integer,因为我这里role字段的类型是string,所以存的值就变成了"0"这种字符串　,解决的办法是把role转成integer,或者这样
+
+```rb
+enum role: {"admin" => "one", :member => "two"}
+```
+
