@@ -1,0 +1,10 @@
+https://code.tutsplus.com/tutorials/how-to-use-faye-as-a-real-time-push-server-in-rails--net-22600
+
+https://github.com/faye/faye-websocket-ruby#running-your-socket-application
+
+要用正确的方式启动server,比如rackup faye.ru,即便显示日志是puma,也不行
+必须puma faye.ru
+
+在vagrant里面的时候 faye的端口要做转发，确保外面的host的机器可以访问到
+
+在工具栏的console里面查看是否有报错
