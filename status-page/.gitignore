@@ -1,4 +1,0 @@
-pkg
-tmp
-coverage
-spec/dummy/log/*.log
