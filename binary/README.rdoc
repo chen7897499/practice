@@ -1,0 +1,7 @@
+http://stackoverflow.com/questions/14227363/using-turbolinks-in-a-rails-link-to
+
+http://stackoverflow.com/questions/6202873/rails-3-rendering-binary-content
+
+https://www.rails365.net/articles/postgresql-de-array-he-hstore-lei-xing-jiu
+
+Then call the path to that action in your image_tag. You obviously need to make sure the :type field has the right MIME type, add a route, etc.
